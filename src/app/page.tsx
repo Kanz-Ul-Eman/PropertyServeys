@@ -1,66 +1,55 @@
+import Link from "next/link";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { ContactSection } from "@/components/ContactSection";
+import { Hero, ServicesGrid, SiteShell, TestimonialStrip } from "@/components/SiteShell";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <SiteShell>
+      <Hero
+        title="Professional Surveys for Residential and Commercial Properties"
+        subtitle="Clear reports, practical advice, and reliable turnaround across surrounding areas."
+        image="https://static.wixstatic.com/media/b8be3c_24c21819d3ac4cabac7f2ed6763a8924~mv2.png/v1/fill/w_1039,h_831,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_24c21819d3ac4cabac7f2ed6763a8924~mv2.png"
+      />
+
+      <section className="container section-block">
+        <div className="about-home-grid">
+          <div className="about-copy-card">
+            <h2>About Us</h2>
+            <p>
+              Property Survey and Inspection is an assessor service delivering accurate,
+              up-to-date surveys for residential and commercial properties.
+            </p>
+            <p>
+              Our experienced surveyors provide detailed assessments, certifications,
+              and practical reporting to help clients make informed decisions.
+            </p>
+            <Link href="/about-us" className="text-link">
+              See More
+            </Link>
+          </div>
+          <Image
+            src="https://static.wixstatic.com/media/b8be3c_b794ae497ca94739bab2c34597cadb34~mv2.jpg/v1/fill/w_519,h_626,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_b794ae497ca94739bab2c34597cadb34~mv2.jpg"
+            alt="Surveyor with property documents"
+            width={560}
+            height={420}
+            className="about-home-image"
+            unoptimized
+          />
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <ServicesGrid />
+      <TestimonialStrip />
+      <div id="home-contact">
+        <ContactSection heading="Contact Us" compact />
+      </div>
+
+      <section className="container section-block section-narrow center-action">
+        <Link href="/contact-us" className="text-link">
+          Open Contact Page
+        </Link>
+      </section>
+    </SiteShell>
   );
 }

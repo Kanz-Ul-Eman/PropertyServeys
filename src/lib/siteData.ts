@@ -19,13 +19,13 @@ export type PageData = {
 };
 
 export const companyInfo = {
-  name: "Coventry Property Surveys Limited",
-  address: "111 New Union Street, Coventry, CV1 2NT",
+  name: "Property Surveys and Inspection Limited",
+  address: "111 New Union Street, CV1 2NT",
   email: "info@coventrypropertysurveys.co.uk",
   phoneDisplay: "024 76 291 555",
   phoneRaw: "02476291555",
   copyright:
-    "© Copyright 2026 Coventry Property Surveys Ltd. All Rights Reserved. Registered in England and Wales No.12292915",
+    "© Copyright 2026 Property Surveys and Inspection Ltd. All Rights Reserved. Registered in England and Wales No.12292915",
 };
 
 export const socialLinks = [
@@ -93,13 +93,6 @@ export const serviceCards: ServiceCard[] = [
     href: "/legionnaires-risk-assessments",
   },
   {
-    title: "Fire Risk Assessments",
-    description:
-      "Clear fire risk assessments for legal compliance and safer premises.",
-    price: "Prices start from £195 + VAT",
-    href: "/fire-risk-assessments",
-  },
-  {
     title: "EPC Compliance Advice",
     description:
       "Advice on EPC improvements, MEES compliance and practical routes to target ratings.",
@@ -111,18 +104,38 @@ export const serviceCards: ServiceCard[] = [
 export const testimonials = [
   {
     name: "Ravinder G",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=180&q=80",
     quote:
       "Fantastic service from Antony and his team. We requested an EPC and were amazed how quickly it was scheduled and carried out.",
   },
   {
     name: "Jodie H",
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=180&q=80",
     quote:
       "I needed an EPC quickly and received a response within an hour. Inspection was next day and the certificate came through the same day.",
   },
   {
     name: "Liam Hyland",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=180&q=80",
     quote:
       "Always a 5 star service from these guys. Have regularly used them and would recommend them.",
+  },
+  {
+    name: "Colin Emmott",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=180&q=80",
+    quote:
+      "Arrived on time, friendly assessor, and I received the report the same day. Really straightforward process.",
+  },
+  {
+    name: "Sophie Patel",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=180&q=80",
+    quote:
+      "Used this team for a level 2 survey. The report was clear and helped us renegotiate before exchange.",
   },
 ];
 
@@ -136,7 +149,7 @@ export const pages: Record<string, PageData> = {
       {
         title: "Who We Are",
         body: [
-          "Established in 2019, Coventry Property Surveys Ltd is an independent residential surveying company providing professional inspections across Coventry and surrounding areas.",
+          "Established in 2019, our independent residential surveying company provides professional inspections across surrounding areas.",
           "We specialise in EPCs, RICS HomeBuyer Surveys, Legionella Risk Assessments and marketing floor plans for buyers, homeowners and landlords.",
         ],
       },

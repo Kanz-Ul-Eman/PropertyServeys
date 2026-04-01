@@ -15,7 +15,7 @@ const bodyFont = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Coventry Property Surveys",
+  title: "Property Surveys and Inspection",
   description: "Professional surveys for residential and commercial properties.",
 };
 
