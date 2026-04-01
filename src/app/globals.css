@@ -82,11 +82,24 @@ p {
   font-weight: 700;
 }
 
+.brand-logo-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(160deg, #f8fafc 0%, #e9eef4 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 10px;
+  padding: 5px;
 }
 
 .nav-links {
@@ -95,6 +108,10 @@ p {
   gap: 1rem;
   font-weight: 600;
   align-items: center;
+}
+
+.mobile-menu-btn {
+  display: none;
 }
 
 .services-dropdown {
@@ -154,7 +171,11 @@ p {
 
 .hero-overlay {
   min-height: 86vh;
-  background: linear-gradient(130deg, rgba(20, 29, 38, 0.78), rgba(42, 63, 81, 0.38));
+  background: linear-gradient(
+    130deg,
+    rgba(20, 29, 38, 0.78),
+    rgba(42, 63, 81, 0.38)
+  );
 }
 
 .hero-content {
@@ -414,6 +435,15 @@ button:hover {
   grid-template-columns: 2fr 1fr;
 }
 
+.contact-grid aside h2 {
+  margin-bottom: 0.7rem;
+}
+
+.contact-grid aside > p {
+  margin-bottom: 1rem;
+  color: #33414d;
+}
+
 .contact-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -458,6 +488,36 @@ button:hover {
   color: #b3292f;
 }
 
+.contact-card {
+  padding: 1.2rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf7f1 100%);
+}
+
+.contact-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.contact-card p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.72rem 0;
+}
+
+.contact-card svg {
+  flex-shrink: 0;
+}
+
+.contact-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  color: var(--accent-dark);
+}
+
 .site-footer {
   margin-top: auto;
   position: relative;
@@ -470,7 +530,8 @@ button:hover {
 .footer-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(16, 24, 33, 0.82), rgba(16, 24, 33, 0.88)),
+  background-image:
+    linear-gradient(rgba(16, 24, 33, 0.82), rgba(16, 24, 33, 0.88)),
     url("https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80");
   background-size: cover;
   background-position: center;
@@ -539,6 +600,29 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
+  .about-home-image {
+    justify-self: center;
+  }
+
+  .section-block {
+    margin-block: 2.1rem;
+  }
+
+  .hero,
+  .hero-overlay,
+  .hero-content {
+    min-height: 74vh;
+  }
+
+  .hero-content {
+    padding: 1.7rem 0;
+  }
+
+  .hero-actions .cta-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
   .testimonial-head {
     flex-direction: column;
     justify-content: center;
@@ -553,13 +637,96 @@ button:hover {
   }
 
   .nav-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 1rem 0;
+  }
+
+  .brand {
+    justify-content: flex-start;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.05rem;
+    padding: 0;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.45rem;
+    font-size: 0.96rem;
+    margin-top: 0.25rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links > a,
+  .services-dropdown summary {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .services-dropdown {
+    width: 100%;
+  }
+
+  .services-dropdown summary {
+    justify-content: space-between;
   }
 
   .dropdown-menu {
     position: static;
     width: 100%;
     margin-top: 0.5rem;
+  }
+
+  .dropdown-menu a {
+    text-align: left;
+  }
+
+  .contact-card p {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: min(1120px, 94vw);
+  }
+
+  .brand {
+    font-size: 1.05rem;
+  }
+
+  .brand-logo-wrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .section-title-center {
+    font-size: clamp(1.6rem, 8vw, 2rem) !important;
   }
 }

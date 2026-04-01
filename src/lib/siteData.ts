@@ -29,9 +29,18 @@ export const companyInfo = {
 };
 
 export const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/coventrypropertysurveys" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100054596222867" },
-  { label: "LinkedIn", href: "https://uk.linkedin.com/company/coventry-property-surveys-ltd" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/coventrypropertysurveys",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=100054596222867",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://uk.linkedin.com/company/coventry-property-surveys-ltd",
+  },
 ];
 
 export const miscLinks = [
@@ -142,7 +151,8 @@ export const testimonials = [
 export const pages: Record<string, PageData> = {
   "about-us": {
     title: "About Us",
-    subtitle: "Clear, reliable property surveys and assessments to support confident decisions.",
+    subtitle:
+      "Clear, reliable property surveys and assessments to support confident decisions.",
     heroImage:
       "https://static.wixstatic.com/media/b8be3c_0d164e95548e40d080577e8d21662339~mv2.webp/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_0d164e95548e40d080577e8d21662339~mv2.webp",
     sections: [
@@ -208,7 +218,8 @@ export const pages: Record<string, PageData> = {
   },
   "copy-of-domestic-epc": {
     title: "Commercial EPCs",
-    subtitle: "Professional commercial EPCs for legal compliance and confident decisions.",
+    subtitle:
+      "Professional commercial EPCs for legal compliance and confident decisions.",
     heroImage:
       "https://static.wixstatic.com/media/e36d9728e67e439798d6a0c50e57690b.jpg/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e36d9728e67e439798d6a0c50e57690b.jpg",
     sections: [
@@ -237,7 +248,8 @@ export const pages: Record<string, PageData> = {
   },
   "general-6": {
     title: "RICS Surveys",
-    subtitle: "Choose the right RICS survey level with clear guidance and practical reports.",
+    subtitle:
+      "Choose the right RICS survey level with clear guidance and practical reports.",
     heroImage:
       "https://static.wixstatic.com/media/11062b_446cf46ee5404b148b4e64bb98fb9eb6~mv2.jpg/v1/fill/w_1039,h_638,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_446cf46ee5404b148b4e64bb98fb9eb6~mv2.jpg",
     sections: [
@@ -266,7 +278,8 @@ export const pages: Record<string, PageData> = {
   },
   "floor-plans": {
     title: "Marketing Floor Plans",
-    subtitle: "Clear, accurate plans that improve presentation for sales and lettings.",
+    subtitle:
+      "Clear, accurate plans that improve presentation for sales and lettings.",
     heroImage:
       "https://static.wixstatic.com/media/b8be3c_5d9d8802c79c444bb1071d5954ebf0f8~mv2.jpg/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_5d9d8802c79c444bb1071d5954ebf0f8~mv2.jpg",
     sections: [
@@ -288,7 +301,8 @@ export const pages: Record<string, PageData> = {
   },
   "asbestos-surveys": {
     title: "Asbestos Surveys",
-    subtitle: "Management, refurbishment and targeted testing surveys for safer properties.",
+    subtitle:
+      "Management, refurbishment and targeted testing surveys for safer properties.",
     heroImage:
       "https://static.wixstatic.com/media/c27ae6fb01504302b2adc390036cd314.jpg/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c27ae6fb01504302b2adc390036cd314.jpg",
     sections: [
@@ -318,7 +332,8 @@ export const pages: Record<string, PageData> = {
   },
   "brukl-reports": {
     title: "SBEM Calculations & BRUKL Reports",
-    subtitle: "Reliable SBEM and BRUKL reporting for Part L non-domestic compliance.",
+    subtitle:
+      "Reliable SBEM and BRUKL reporting for Part L non-domestic compliance.",
     heroImage:
       "https://static.wixstatic.com/media/b8be3c_98ab855c1fee45939b3f111a4c8f099c~mv2.jpg/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_98ab855c1fee45939b3f111a4c8f099c~mv2.jpg",
     sections: [
@@ -347,7 +362,8 @@ export const pages: Record<string, PageData> = {
   },
   "legionnaires-risk-assessments": {
     title: "Legionella Risk Assessments",
-    subtitle: "Practical landlord assessments to support health and safety compliance.",
+    subtitle:
+      "Practical landlord assessments to support health and safety compliance.",
     heroImage:
       "https://static.wixstatic.com/media/b8be3c_80c374d31c4b4b21b7d40ece8352907c~mv2.jpg/v1/fill/w_1039,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8be3c_80c374d31c4b4b21b7d40ece8352907c~mv2.jpg",
     sections: [
@@ -406,7 +422,8 @@ export const pages: Record<string, PageData> = {
   },
   "services-4": {
     title: "EPC Compliance Advice",
-    subtitle: "Expert guidance to reach target EPC ratings and meet MEES requirements.",
+    subtitle:
+      "Expert guidance to reach target EPC ratings and meet MEES requirements.",
     heroImage:
       "https://static.wixstatic.com/media/11062b_82bea52f5d2142dca90bfb337c376cb5~mv2.jpg/v1/fill/w_1039,h_424,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_82bea52f5d2142dca90bfb337c376cb5~mv2.jpg",
     sections: [

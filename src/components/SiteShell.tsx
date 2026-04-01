@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   FaArrowLeft,
   FaArrowRight,
+  FaBars,
   FaChevronDown,
   FaEnvelope,
   FaFacebook,
@@ -14,6 +15,7 @@ import {
   FaLinkedin,
   FaMapMarkerAlt,
   FaPhoneAlt,
+  FaTimes,
   FaWhatsapp,
 } from "react-icons/fa";
 import {
@@ -30,6 +32,7 @@ type SiteShellProps = {
 
 export function SiteShell({ children }: SiteShellProps) {
   const dropdownRef = useRef<HTMLDetailsElement | null>(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -53,7 +56,7 @@ export function SiteShell({ children }: SiteShellProps) {
       Facebook: FaFacebook,
       LinkedIn: FaLinkedin,
     }),
-    []
+    [],
   );
 
   return (
@@ -61,12 +64,41 @@ export function SiteShell({ children }: SiteShellProps) {
       <header className="site-header">
         <div className="container nav-bar">
           <Link href="/" className="brand">
-            <Image src="/logo.png" alt="Company logo" width={44} height={44} className="brand-logo" priority />
+            <span className="brand-logo-wrap" aria-hidden="true">
+              <Image
+                src="/logo.png"
+                alt="Company logo"
+                width={44}
+                height={44}
+                className="brand-logo"
+                priority
+              />
+            </span>
             <span>Property Serveys and Inspetion</span>
           </Link>
-          <nav className="nav-links" aria-label="Main navigation">
-            <Link href="/">Home</Link>
-            <Link href="/about-us">About Us</Link>
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileNavOpen}
+            onClick={() => setMobileNavOpen((current) => !current)}
+          >
+            {mobileNavOpen ? (
+              <FaTimes aria-hidden="true" />
+            ) : (
+              <FaBars aria-hidden="true" />
+            )}
+          </button>
+          <nav
+            className={`nav-links ${mobileNavOpen ? "open" : ""}`}
+            aria-label="Main navigation"
+          >
+            <Link href="/" onClick={() => setMobileNavOpen(false)}>
+              Home
+            </Link>
+            <Link href="/about-us" onClick={() => setMobileNavOpen(false)}>
+              About Us
+            </Link>
             <details className="services-dropdown" ref={dropdownRef}>
               <summary>
                 <span>Our Services</span>
@@ -74,13 +106,19 @@ export function SiteShell({ children }: SiteShellProps) {
               </summary>
               <div className="dropdown-menu">
                 {serviceCards.map((service) => (
-                  <Link key={service.href} href={service.href}>
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    onClick={() => setMobileNavOpen(false)}
+                  >
                     {service.title}
                   </Link>
                 ))}
               </div>
             </details>
-            <Link href="/contact-us">Contact Us</Link>
+            <Link href="/contact-us" onClick={() => setMobileNavOpen(false)}>
+              Contact Us
+            </Link>
           </nav>
         </div>
       </header>
@@ -107,11 +145,17 @@ export function SiteShell({ children }: SiteShellProps) {
             </p>
             <p>
               <FaPhoneAlt aria-hidden="true" />
-              <a href={`tel:${companyInfo.phoneRaw}`}>{companyInfo.phoneDisplay}</a>
+              <a href={`tel:${companyInfo.phoneRaw}`}>
+                {companyInfo.phoneDisplay}
+              </a>
             </p>
             <p>
               <FaWhatsapp aria-hidden="true" />
-              <a href="https://wa.me/4476291555" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://wa.me/4476291555"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 WhatsApp Chat
               </a>
             </p>
@@ -122,7 +166,8 @@ export function SiteShell({ children }: SiteShellProps) {
               {socialLinks.map((item) => (
                 <li key={item.href}>
                   {(() => {
-                    const Icon = iconMap[item.label as keyof typeof iconMap] ?? FaFacebook;
+                    const Icon =
+                      iconMap[item.label as keyof typeof iconMap] ?? FaFacebook;
                     return <Icon aria-hidden="true" />;
                   })()}
                   <a href={item.href} target="_blank" rel="noopener noreferrer">
@@ -158,7 +203,15 @@ export function SiteShell({ children }: SiteShellProps) {
   );
 }
 
-export function Hero({ title, subtitle, image }: { title: string; subtitle: string; image: string }) {
+export function Hero({
+  title,
+  subtitle,
+  image,
+}: {
+  title: string;
+  subtitle: string;
+  image: string;
+}) {
   return (
     <section className="hero" style={{ backgroundImage: `url(${image})` }}>
       <div className="hero-overlay">
@@ -168,7 +221,12 @@ export function Hero({ title, subtitle, image }: { title: string; subtitle: stri
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <motion.p className="tag" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+          <motion.p
+            className="tag"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             Your property in our safe hands
           </motion.p>
           <h1>{title}</h1>
@@ -218,24 +276,41 @@ export function TestimonialStrip() {
   const [index, setIndex] = useState(0);
 
   const showPrev = () => {
-    setIndex((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+    setIndex((current) =>
+      current === 0 ? testimonials.length - 1 : current - 1,
+    );
   };
 
   const showNext = () => {
-    setIndex((current) => (current === testimonials.length - 1 ? 0 : current + 1));
+    setIndex((current) =>
+      current === testimonials.length - 1 ? 0 : current + 1,
+    );
   };
 
-  const activeSet = Array.from({ length: 4 }, (_, offset) => testimonials[(index + offset) % testimonials.length]);
+  const activeSet = Array.from(
+    { length: 4 },
+    (_, offset) => testimonials[(index + offset) % testimonials.length],
+  );
 
   return (
     <section id="testimonials" className="container section-block">
       <div className="testimonial-head">
         <h2>Testimonials</h2>
         <div className="testimonial-arrows">
-          <button type="button" onClick={showPrev} className="arrow-btn" aria-label="Show previous testimonial">
+          <button
+            type="button"
+            onClick={showPrev}
+            className="arrow-btn"
+            aria-label="Show previous testimonial"
+          >
             <FaArrowLeft />
           </button>
-          <button type="button" onClick={showNext} className="arrow-btn" aria-label="Show next testimonial">
+          <button
+            type="button"
+            onClick={showNext}
+            className="arrow-btn"
+            aria-label="Show next testimonial"
+          >
             <FaArrowRight />
           </button>
         </div>
@@ -250,7 +325,14 @@ export function TestimonialStrip() {
             transition={{ duration: 0.35, delay: cardIndex * 0.08 }}
           >
             <div className="person">
-              <Image src={active.avatar} alt={active.name} width={70} height={70} className="avatar" unoptimized />
+              <Image
+                src={active.avatar}
+                alt={active.name}
+                width={70}
+                height={70}
+                className="avatar"
+                unoptimized
+              />
               <cite>{active.name}</cite>
             </div>
             <p>“{active.quote}”</p>

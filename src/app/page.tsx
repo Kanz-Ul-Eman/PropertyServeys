@@ -1,7 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { ContactSection } from "@/components/ContactSection";
-import { Hero, ServicesGrid, SiteShell, TestimonialStrip } from "@/components/SiteShell";
+import {
+  Hero,
+  ServicesGrid,
+  SiteShell,
+  TestimonialStrip,
+} from "@/components/SiteShell";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Property surveys and inspection services including EPCs, floor plans, and risk assessments for residential and commercial properties.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
@@ -17,12 +32,14 @@ export default function Home() {
           <div className="about-copy-card">
             <h2>About Us</h2>
             <p>
-              Property Survey and Inspection is an assessor service delivering accurate,
-              up-to-date surveys for residential and commercial properties.
+              Property Survey and Inspection is an assessor service delivering
+              accurate, up-to-date surveys for residential and commercial
+              properties.
             </p>
             <p>
-              Our experienced surveyors provide detailed assessments, certifications,
-              and practical reporting to help clients make informed decisions.
+              Our experienced surveyors provide detailed assessments,
+              certifications, and practical reporting to help clients make
+              informed decisions.
             </p>
             <Link href="/about-us" className="text-link">
               See More

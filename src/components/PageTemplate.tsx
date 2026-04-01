@@ -16,7 +16,11 @@ export function PageTemplate({ page }: { page: PageData }) {
 
   return (
     <SiteShell>
-      <Hero title={page.title} subtitle={page.subtitle} image={page.heroImage} />
+      <Hero
+        title={page.title}
+        subtitle={page.subtitle}
+        image={page.heroImage}
+      />
       <motion.section
         className="container section-block page-intro"
         initial={{ opacity: 0, y: 14 }}

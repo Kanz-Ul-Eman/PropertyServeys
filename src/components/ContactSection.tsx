@@ -2,7 +2,12 @@
 
 import { FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { companyInfo, serviceCards } from "@/lib/siteData";
 
 type ContactSectionProps = {
@@ -10,8 +15,13 @@ type ContactSectionProps = {
   compact?: boolean;
 };
 
-export function ContactSection({ heading = "Contact Us", compact = false }: ContactSectionProps) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+export function ContactSection({
+  heading = "Contact Us",
+  compact = false,
+}: ContactSectionProps) {
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -23,7 +33,9 @@ export function ContactSection({ heading = "Contact Us", compact = false }: Cont
 
     if (!serviceId || !templateId || !publicKey) {
       setStatus("error");
-      setStatusMessage("Email setup is missing. Please set EmailJS environment variables.");
+      setStatusMessage(
+        "Email setup is missing. Please set EmailJS environment variables.",
+      );
       return;
     }
 
@@ -49,21 +61,37 @@ export function ContactSection({ heading = "Contact Us", compact = false }: Cont
       await emailjs.send(serviceId, templateId, templateParams, { publicKey });
       form.reset();
       setStatus("success");
-      setStatusMessage("Message sent successfully. We will get back to you soon.");
+      setStatusMessage(
+        "Message sent successfully. We will get back to you soon.",
+      );
     } catch {
       setStatus("error");
-      setStatusMessage("Failed to send message. Please try again or contact us by phone.");
+      setStatusMessage(
+        "Failed to send message. Please try again or contact us by phone.",
+      );
     }
   };
 
   return (
-    <section className={`container section-block contact-grid ${compact ? "compact-contact" : ""}`}>
+    <section
+      className={`container section-block contact-grid ${compact ? "compact-contact" : ""}`}
+    >
       <article>
         <h2 className="section-title-center">{heading}</h2>
         <p>Please fill in our form and we will reply soon.</p>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input type="text" name="first_name" placeholder="First name" required />
-          <input type="text" name="last_name" placeholder="Last name" required />
+          <input
+            type="text"
+            name="first_name"
+            placeholder="First name"
+            required
+          />
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last name"
+            required
+          />
           <input type="email" name="email" placeholder="Email" required />
           <input type="text" name="phone" placeholder="Phone (Optional)" />
           <select name="service" defaultValue="" required>
@@ -76,14 +104,26 @@ export function ContactSection({ heading = "Contact Us", compact = false }: Cont
               </option>
             ))}
           </select>
-          <input type="text" name="property_address" placeholder="Subject Property Address" />
+          <input
+            type="text"
+            name="property_address"
+            placeholder="Subject Property Address"
+          />
           <textarea rows={5} name="message" placeholder="Message" required />
-          <input type="text" name="heard_from" placeholder="How did you hear about us?" />
+          <input
+            type="text"
+            name="heard_from"
+            placeholder="How did you hear about us?"
+          />
           <button type="submit" disabled={status === "loading"}>
             {status === "loading" ? "Sending..." : "Submit"}
           </button>
           {status !== "idle" ? (
-            <p className={`form-status ${status}`} role="status" aria-live="polite">
+            <p
+              className={`form-status ${status}`}
+              role="status"
+              aria-live="polite"
+            >
               {statusMessage}
             </p>
           ) : null}
@@ -92,7 +132,9 @@ export function ContactSection({ heading = "Contact Us", compact = false }: Cont
 
       <aside>
         <h2>Call or Message</h2>
-        <p>Alternatively, you can call us directly or chat with us on WhatsApp.</p>
+        <p>
+          Alternatively, you can call us directly or chat with us on WhatsApp.
+        </p>
         <div className="contact-card">
           <h3>{companyInfo.name}</h3>
           <p>
@@ -104,7 +146,9 @@ export function ContactSection({ heading = "Contact Us", compact = false }: Cont
           </p>
           <p>
             <FaPhoneAlt aria-hidden="true" />
-            <a href={`tel:${companyInfo.phoneRaw}`}>{companyInfo.phoneDisplay}</a>
+            <a href={`tel:${companyInfo.phoneRaw}`}>
+              {companyInfo.phoneDisplay}
+            </a>
           </p>
           <p>
             <FaWhatsapp aria-hidden="true" />
